@@ -1,0 +1,245 @@
+/* ==========================================================================
+   ANIMATIONS.CSS - Keyframes and Transitions for Allwin Golden Portfolio
+   ========================================================================== */
+
+/* --- Core Keyframes --- */
+
+/* Typing Cursor Blinking */
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+/* Floating Animation for Badges */
+@keyframes float {
+    0% {
+        transform: translateY(0px) rotate(0deg);
+    }
+    50% {
+        transform: translateY(-15px) rotate(2deg);
+    }
+    100% {
+        transform: translateY(0px) rotate(0deg);
+    }
+}
+
+/* Background Glowing Blob Rotations */
+@keyframes blob-bounce {
+    0%, 100% {
+        transform: translate(0, 0) scale(1);
+    }
+    33% {
+        transform: translate(30px, -50px) scale(1.1);
+    }
+    66% {
+        transform: translate(-20px, 20px) scale(0.95);
+    }
+}
+
+/* Circular Orbit Rotations */
+@keyframes rotate-clockwise {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes rotate-counter {
+    0% { transform: rotate(360deg); }
+    100% { transform: rotate(0deg); }
+}
+
+/* Pulsing Node Glows */
+@keyframes pulse-glow {
+    0%, 100% {
+        opacity: 0.8;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.05);
+        filter: drop-shadow(0 0 20px rgba(59, 130, 246, 0.6));
+    }
+}
+
+@keyframes pulse-glow-red {
+    0%, 100% {
+        transform: scale(1);
+        filter: drop-shadow(0 0 5px rgba(239, 68, 68, 0.5));
+    }
+    50% {
+        transform: scale(1.15);
+        filter: drop-shadow(0 0 15px rgba(239, 68, 68, 0.9));
+    }
+}
+
+/* Preloader Fill and Exit */
+@keyframes loader-line-fill {
+    0% { width: 0%; }
+    50% { width: 40%; }
+    70% { width: 80%; }
+    100% { width: 100%; }
+}
+
+@keyframes fade-out {
+    from { opacity: 1; }
+    to { opacity: 0; }
+}
+
+/* Scroll wheel dot movement */
+@keyframes scroll-wheel-dot {
+    0% {
+        top: 8px;
+        opacity: 1;
+    }
+    50% {
+        top: 24px;
+        opacity: 0;
+    }
+    100% {
+        top: 8px;
+        opacity: 0;
+    }
+}
+
+/* --- Entrance Reveals on Scroll --- */
+.reveal-fade,
+.reveal-slide-up {
+    opacity: 0;
+    transition: opacity 0.8s cubic-bezier(0.25, 1, 0.5, 1), transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+    will-change: opacity, transform;
+}
+
+.reveal-slide-up {
+    transform: translateY(40px);
+}
+
+/* Active Class trigger by Intersection Observer */
+.revealed {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Stagger reveals inside container */
+.reveal-stagger > * {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s cubic-bezier(0.25, 1, 0.5, 1), transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.reveal-stagger.revealed > * {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Custom CSS offsets for child items */
+.reveal-stagger.revealed > *:nth-child(1) { transition-delay: 0.1s; }
+.reveal-stagger.revealed > *:nth-child(2) { transition-delay: 0.2s; }
+.reveal-stagger.revealed > *:nth-child(3) { transition-delay: 0.3s; }
+.reveal-stagger.revealed > *:nth-child(4) { transition-delay: 0.4s; }
+.reveal-stagger.revealed > *:nth-child(5) { transition-delay: 0.5s; }
+.reveal-stagger.revealed > *:nth-child(6) { transition-delay: 0.6s; }
+
+/* --- Applying Animations to Static Classes --- */
+
+/* Hero Orbits */
+.rotator-clockwise {
+    transform-origin: center;
+    animation: rotate-clockwise 25s linear infinite;
+}
+
+.rotator-counter {
+    transform-origin: center;
+    animation: rotate-counter 20s linear infinite;
+}
+
+.pulse-glow {
+    transform-origin: center;
+    animation: pulse-glow 3s ease-in-out infinite;
+}
+
+.pulse-glow-red {
+    transform-origin: center;
+    animation: pulse-glow-red 2s ease-in-out infinite;
+}
+
+/* Background Blobs */
+.bg-blobs {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.blob {
+    position: absolute;
+    width: 450px;
+    height: 450px;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.08;
+    mix-blend-mode: screen;
+}
+
+.blob-1 {
+    background-color: var(--primary);
+    top: -100px;
+    left: -100px;
+    animation: blob-bounce 20s infinite alternate ease-in-out;
+}
+
+.blob-2 {
+    background-color: var(--accent);
+    bottom: -150px;
+    right: -100px;
+    animation: blob-bounce 25s infinite alternate ease-in-out 2s;
+}
+
+.blob-3 {
+    background-color: var(--secondary);
+    top: 40%;
+    left: 50%;
+    width: 350px;
+    height: 350px;
+    opacity: 0.05;
+    animation: blob-bounce 18s infinite alternate ease-in-out 4s;
+}
+
+/* Light Theme overrides for blobs to avoid blinding white */
+[data-theme="light"] .blob {
+    opacity: 0.04;
+    mix-blend-mode: multiply;
+}
+
+/* Card Hover Subtle Highlight Animation */
+.project-card, .service-card, .certificate-card, .why-card {
+    position: relative;
+}
+
+.project-card::before,
+.service-card::before,
+.certificate-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(135deg, transparent, transparent);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+    transition: background var(--transition-normal);
+}
+
+.project-card:hover::before,
+.service-card:hover::before,
+.certificate-card:hover::before {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 50%, var(--accent) 100%);
+}

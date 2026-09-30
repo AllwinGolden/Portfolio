@@ -1,0 +1,697 @@
+/* ==========================================================================
+   RESPONSIVE.CSS - Allwin Golden Portfolio
+   Rewritten for full device coverage: 320 / 360 / 390 / 414 / 480 / 576 /
+   768 / 820 / 992 / 1024 / 1200 / 1440 / 1920
+   Desktop (>=1200px) renders exactly as defined in style.css - this file
+   only overrides layout, spacing and typography for narrower viewports.
+   Ordered from largest breakpoint to smallest so later rules safely
+   refine earlier ones without duplication or !important.
+   ========================================================================== */
+
+/* ==========================================================================
+   1199px and below - Small laptops / large tablets landscape
+   ========================================================================== */
+@media screen and (max-width: 1199px) {
+
+    .container {
+        width: 92%;
+    }
+
+    .section-padding {
+        padding: 90px 0;
+    }
+
+    /* Navbar: tighten spacing before anything needs to collapse */
+    .nav-list {
+        gap: 22px;
+    }
+
+    .nav-link {
+        font-size: 0.92rem;
+    }
+
+    .nav-actions {
+        gap: 12px;
+    }
+
+    /* Hero */
+    .hero-grid {
+        gap: 30px;
+    }
+
+    .hero-name {
+        font-size: 3.4rem;
+    }
+
+    .hero-role {
+        font-size: 1.6rem;
+    }
+
+    .avatar-backdrop {
+        max-width: 380px;
+    }
+
+    /* About */
+    .about-grid {
+        gap: 24px;
+    }
+
+    /* Modal */
+    .modal-content {
+        width: 92%;
+        padding: 34px;
+    }
+}
+
+/* ==========================================================================
+   1024px and below - Laptops
+   ========================================================================== */
+@media screen and (max-width: 1024px) {
+    :root {
+        --header-height: 70px;
+    }
+
+    /* Navbar: continue tightening so 7 links + actions fit without wrapping */
+    .nav-list {
+        gap: 16px;
+    }
+
+    .nav-link {
+        font-size: 0.85rem;
+    }
+
+    .btn-resume {
+        padding: 8px 14px;
+    }
+
+    /* Hero */
+    .hero-name {
+        font-size: 3rem;
+    }
+
+    .hero-role {
+        font-size: 1.4rem;
+    }
+
+    .hero-description {
+        font-size: 1rem;
+    }
+
+    .avatar-backdrop {
+        max-width: 340px;
+    }
+
+    /* About */
+    .about-grid {
+        grid-template-columns: 1.1fr 0.9fr;
+    }
+
+    /* Skills */
+    .skills-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 24px;
+    }
+
+    .skills-grid > *:last-child {
+        grid-column: span 2;
+    }
+
+    /* Services */
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+
+    /* Certificates */
+    .certificates-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+
+    /* Why Hire Me */
+    .why-hire-grid {
+        gap: 24px;
+    }
+
+    /* Contact */
+    .contact-grid {
+        grid-template-columns: 0.9fr 1.1fr;
+        gap: 30px;
+    }
+
+    /* Modal */
+    .modal-content {
+        padding: 30px;
+    }
+
+    .modal-title {
+        font-size: 1.7rem;
+    }
+}
+
+/* ==========================================================================
+   899px and below - Tablets (covers 820 / 768) - Navbar collapses here
+   ========================================================================== */
+@media screen and (max-width: 899px) {
+
+    .container {
+        width: 94%;
+    }
+
+    /* Navbar Navigation menu hides, Hamburger shows */
+    .nav-menu {
+        display: none;
+    }
+
+    .hamburger-menu {
+        display: flex;
+    }
+
+    .btn-resume {
+        display: none;
+    }
+
+    /* Hamburger Active Transformations */
+    .hamburger-menu.active .bar-1 {
+        transform: translateY(8px) rotate(45deg);
+    }
+    .hamburger-menu.active .bar-2 {
+        opacity: 0;
+    }
+    .hamburger-menu.active .bar-3 {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+
+    /* Hero Column layout stacks */
+    .hero-section {
+        min-height: unset;
+        padding-bottom: 60px;
+    }
+
+    .hero-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 50px;
+        padding-top: 30px;
+    }
+
+    .hero-name {
+        font-size: 2.8rem;
+    }
+
+    .hero-description {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .hero-ctas {
+        justify-content: center;
+    }
+
+    .hero-visual-content {
+        order: -1;
+    }
+
+    .avatar-backdrop {
+        max-width: 320px;
+        margin: 0 auto;
+    }
+
+    /* About Section Stacking */
+    .about-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    /* Achievements Grid */
+    .achievements-panel {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px 20px;
+    }
+
+    /* Experience Timeline */
+    .experience-timeline {
+        padding-left: 24px;
+    }
+
+    .timeline-dot {
+        left: -24px;
+    }
+
+    /* Contact Details Grid */
+    .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .contact-form-panel {
+        order: -1;
+    }
+
+    /* Modal Columns stack */
+    .modal-body-grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+
+    .modal-img-column {
+        aspect-ratio: 16/9;
+    }
+
+    /* Disable custom cursor glow on touch screens as it lags / feels wrong */
+    .cursor-glow, .cursor-dot {
+        display: none;
+    }
+
+    body {
+        cursor: auto;
+    }
+}
+
+/* ==========================================================================
+   680px and below - Project cards need the full row to stay readable
+   ========================================================================== */
+@media screen and (max-width: 680px) {
+    .projects-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+}
+
+/* ==========================================================================
+   576px and below - Large phones / small phablets
+   ========================================================================== */
+@media screen and (max-width: 576px) {
+
+    .container {
+        width: 95%;
+    }
+
+    .section-padding {
+        padding: 60px 0;
+    }
+
+    .section-header {
+        margin-bottom: 40px;
+    }
+
+    .section-title {
+        font-size: 1.9rem;
+    }
+
+    .section-subtitle {
+        font-size: 0.95rem;
+    }
+
+    .glass-card {
+        padding: 24px;
+    }
+
+    /* Hero */
+    .hero-name {
+        font-size: 2.3rem;
+    }
+
+    .hero-role {
+        font-size: 1.25rem;
+    }
+
+    .hero-typing-container {
+        font-size: 1rem;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    /* Skills */
+    .skills-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .skills-grid > *:last-child {
+        grid-column: span 1;
+    }
+
+    /* Projects controller: filters + search stack cleanly */
+    .projects-controller {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .filter-tabs {
+        flex-wrap: wrap;
+        justify-content: center;
+        border-radius: var(--radius-md);
+    }
+
+    .search-box-container {
+        width: 100%;
+    }
+
+    /* Services */
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* Certificates */
+    .certificates-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* Why Hire Me */
+    .why-hire-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    /* Contact Form Rows stack */
+    .form-row {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+
+    /* Footer content structure centers */
+    .footer-container {
+        flex-direction: column;
+        text-align: center;
+        gap: 15px;
+    }
+
+    .footer-socials {
+        justify-content: center;
+    }
+
+    /* Modal */
+    .modal-content {
+        padding: 24px;
+    }
+
+    .modal-close-btn {
+        top: 14px;
+        right: 14px;
+        font-size: 1.7rem;
+    }
+
+    .modal-title {
+        font-size: 1.5rem;
+    }
+}
+
+/* ==========================================================================
+   480px and below - Standard phones
+   ========================================================================== */
+@media screen and (max-width: 480px) {
+
+    /* Hero CTAs stack full width for easy tapping */
+    .hero-ctas {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .hero-ctas .btn {
+        width: 100%;
+    }
+
+    .avatar-backdrop {
+        max-width: 260px;
+    }
+
+    /* Floating badges pulled inward so they never clip past the viewport */
+    .floating-badge {
+        padding: 6px 12px;
+        font-size: 0.75rem;
+        gap: 6px;
+    }
+
+    .badge-java { top: 4%; left: 0; }
+    .badge-spring { top: 14%; right: 0; }
+    .badge-react { bottom: 14%; left: 0; }
+    .badge-js { bottom: 8%; right: 0; }
+
+    /* About highlights grid stacks */
+    .about-highlights-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .about-details-list li {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 4px;
+    }
+
+    .detail-value {
+        text-align: left;
+    }
+
+    /* Achievements Stats */
+    .counter-number {
+        font-size: 2.2rem;
+    }
+
+    .counter-label {
+        font-size: 0.85rem;
+    }
+
+    /* Contact */
+    .contact-detail-item {
+        gap: 14px;
+    }
+
+    /* Modal action buttons stack for comfortable tap targets */
+    .modal-actions-block {
+        flex-direction: column;
+    }
+}
+
+/* ==========================================================================
+   414px and below
+   ========================================================================== */
+@media screen and (max-width: 414px) {
+
+    .glass-card {
+        padding: 20px;
+    }
+
+    .project-info {
+        padding: 20px;
+    }
+
+    .certificate-card {
+        padding: 24px;
+    }
+
+    .hero-name {
+        font-size: 2.1rem;
+    }
+
+    .hero-description {
+        font-size: 0.92rem;
+    }
+
+    .btn {
+        padding: 11px 22px;
+        font-size: 0.92rem;
+    }
+
+    .filter-btn {
+        padding: 7px 16px;
+        font-size: 0.85rem;
+    }
+}
+
+/* ==========================================================================
+   390px and below
+   ========================================================================== */
+@media screen and (max-width: 390px) {
+
+    .avatar-backdrop {
+        max-width: 230px;
+    }
+
+    .hero-name {
+        font-size: 1.95rem;
+    }
+
+    .hero-role {
+        font-size: 1.15rem;
+    }
+
+    .why-card {
+        padding-left: 60px;
+    }
+
+    .why-number {
+        font-size: 1.5rem;
+        left: 16px;
+    }
+}
+
+/* ==========================================================================
+   360px and below - Compact phones
+   ========================================================================== */
+@media screen and (max-width: 360px) {
+
+    .container {
+        width: 96%;
+    }
+
+    .section-padding {
+        padding: 45px 0;
+    }
+
+    .section-title {
+        font-size: 1.7rem;
+    }
+
+    .glass-card {
+        padding: 18px;
+    }
+
+    .hero-name {
+        font-size: 1.8rem;
+    }
+
+    .hero-greeting {
+        font-size: 1.1rem;
+    }
+
+    .avatar-backdrop {
+        max-width: 210px;
+    }
+
+    .floating-badge {
+        padding: 5px 10px;
+        font-size: 0.7rem;
+    }
+
+    .floating-badge svg {
+        width: 18px;
+        height: 18px;
+    }
+
+    /* Achievements: one metric per row is easier to read this narrow */
+    .achievements-panel {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+
+    .experience-timeline {
+        padding-left: 20px;
+    }
+
+    .timeline-dot {
+        left: -20px;
+    }
+
+    .timeline-role {
+        font-size: 1.15rem;
+    }
+
+    .modal-content {
+        padding: 18px;
+    }
+
+    .modal-title {
+        font-size: 1.35rem;
+    }
+
+    .form-input {
+        padding: 12px 16px;
+    }
+}
+
+/* ==========================================================================
+   320px and below - Smallest supported phones
+   ========================================================================== */
+@media screen and (max-width: 320px) {
+
+    .section-title {
+        font-size: 1.5rem;
+    }
+
+    .section-subtitle {
+        font-size: 0.85rem;
+    }
+
+    .hero-name {
+        font-size: 1.6rem;
+    }
+
+    .hero-role {
+        font-size: 1.05rem;
+    }
+
+    .hero-typing-container {
+        font-size: 0.9rem;
+    }
+
+    .avatar-backdrop {
+        max-width: 190px;
+    }
+
+    .floating-badge {
+        padding: 4px 8px;
+        font-size: 0.65rem;
+        gap: 4px;
+    }
+
+    .floating-badge svg {
+        width: 16px;
+        height: 16px;
+    }
+
+    .btn {
+        padding: 10px 18px;
+        font-size: 0.85rem;
+    }
+
+    .filter-btn {
+        padding: 6px 14px;
+        font-size: 0.8rem;
+    }
+
+    .why-card {
+        padding-left: 50px;
+    }
+
+    .why-number {
+        top: 18px;
+        left: 14px;
+        font-size: 1.3rem;
+    }
+
+    .cert-icon {
+        font-size: 1.8rem;
+    }
+
+    .counter-number {
+        font-size: 1.9rem;
+    }
+}
+
+/* ==========================================================================
+   Short viewports (landscape phones) - vertical space is the constraint
+   ========================================================================== */
+@media screen and (max-height: 450px) and (orientation: landscape) {
+    .hero-section {
+        min-height: 120vh;
+        padding-top: 90px;
+        padding-bottom: 50px;
+    }
+
+    .hero-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .scroll-indicator {
+        display: none;
+    }
+
+    .mobile-nav-list li {
+        margin: 14px 0;
+    }
+
+    .mobile-nav-link {
+        font-size: 1.3rem;
+    }
+}
